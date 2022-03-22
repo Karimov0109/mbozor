@@ -20,18 +20,18 @@ public class AuthController {
         this.authService = authService;
     }
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public RedirectView login(@ModelAttribute UserAuthDto userAuthDto) {
         authService.login(userAuthDto);
         return new RedirectView("/main");
     }
 
-    @GetMapping("logout")
+    @GetMapping("/logout")
     public ResponseDto logout() {
         return authService.logout();
     }
 
-    @PostMapping("edit-password")
+    @PostMapping("/edit-password")
     public ResponseDto editPassword(@RequestParam String password) {
         return authService.editPassword(password);
     }
